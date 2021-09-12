@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>openfeign-demo</artifactId>
+        <groupId>com.luo.demo.openfeign</groupId>
+        <version>0.0.1-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>openfeign-client</artifactId>
+    <packaging>pom</packaging>
+    <modules>
+        <module>openfeign-client-api</module>
+        <module>openfeign-client-service</module>
+        <module>openfeign-client-web</module>
+    </modules>
+
+    <properties>
+        <openfeign.server.version>0.0.1-SNAPSHOT</openfeign.server.version>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <!-- 管理模块依赖 -->
+            <dependency>
+                <groupId>com.luo.demo.openfeign</groupId>
+                <artifactId>openfeign-client-api</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.luo.demo.openfeign</groupId>
+                <artifactId>openfeign-client-service</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.luo.demo.openfeign</groupId>
+                <artifactId>openfeign-client-web</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <!-- 依赖openfeign-server-api -->
+            <dependency>
+                <groupId>com.luo.demo.openfeign</groupId>
+                <artifactId>openfeign-server-api</artifactId>
+                <version>${openfeign.server.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <dependencies>
+
+
+    </dependencies>
+</project>
