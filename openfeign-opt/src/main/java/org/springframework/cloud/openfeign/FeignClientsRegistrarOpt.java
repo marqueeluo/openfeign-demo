@@ -181,9 +181,11 @@ public class FeignClientsRegistrarOpt implements ImportBeanDefinitionRegistrar, 
                 .orElse(null);
         if (null != feignClientRegistryProps && !CollectionUtils.isEmpty(feignClientRegistryProps.getRegistry())) {
             feignClientRegistryProps.getRegistry().stream().forEach(feignClientRegistry -> {
+                //根据接口定义生成metadata
                 AnnotationMetadata annotationMetadata = AnnotationMetadata.introspect(feignClientRegistry.getTarget());
+                //转换FeignClient注解相同的属性map
                 Map<String, Object> attributes = feignClientRegistry.toAttributes();
-
+                //兼容原组成方式
                 String name = getClientName(attributes);
                 registerClientConfiguration(registry, name, attributes.get("configuration"));
                 registerFeignClient(registry, annotationMetadata, attributes);

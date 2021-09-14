@@ -6,8 +6,8 @@ spring:
   jackson:
     default-property-inclusion:  non_null
     date-format:  yyyy-MM-dd HH:mm:ss
-#feign:
-#  client:
+feign:
+  client:
 #    config:
 #      # 默认配置
 #      default:
@@ -17,14 +17,17 @@ spring:
 #        readTimeout: 5000
 #        # 日志级别（NONE | BASIC | HEADERS | FULL）
 #        loggerLevel: BASIC
+    # 注册FeignClient接口
+    registry:
+#      - name: user
+#        target: com.luo.demo.openfeign.server.api.UserApi
+#        url: http://localhost:8080/demo
+      - name: org
+        target: com.luo.demo.openfeign.server.api.OrgApi
+        url: http://localhost:8080/demo
 logging:
   level:
     com.luo.demo.openfeign.client.feign: DEBUG
-feign:
-  client:
-    registry:
-      - name: user
-        target: com.luo.demo.openfeign.server.api.UserApi
-        url: http://localhost:8080/demo
+    com.luo.demo.openfeign.server.api: DEBUG
 
 
