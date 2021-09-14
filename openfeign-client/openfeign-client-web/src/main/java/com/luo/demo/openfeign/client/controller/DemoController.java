@@ -34,7 +34,7 @@ public class DemoController {
 
     @RequestMapping("/user")
     @ResponseBody
-    public CommonResult hello() {
+    public CommonResult user() {
         Long id = 1L;
         CommonResult<UserResult> commonResult = null;
         /** GET */
