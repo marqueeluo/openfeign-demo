@@ -37,32 +37,33 @@ public class HelloController {
         CommonResult<UserResult> commonResult = null;
         /** GET TODO 405 Method Not Support 实际请求为POST请求 */
         commonResult = this.userFeign.getUser(id);
-        log.info("feign getUser, result: {}", commonResult);
-//        /** PathVariable */
-//        commonResult = this.userFeign.getPathUser(id);
-//        log.info("feign getPathUser, result: {}", commonResult);
-//
-//        /** GET queryString TODO 服务端收到参数为空 */
-//        commonResult = this.userFeign.getUserList(this.buildUserSearchParam());
-//        log.info("feign getUserList, result: {}", commonResult);
-//
-//        /** POST FORM TODO 服务端收到参数为空  */
-//        commonResult = this.userFeign.postUserList(this.buildUserSearchParam());
-//        log.info("feign postUserList, result: {}", commonResult);
-//
-//        /** POST RequestBody */
-//        commonResult = this.userFeign.addUser(this.buildUserAddParam());
-//        log.info("feign addUser, result: {}", commonResult);
-//        commonResult = this.userFeign.updateUser(this.buildUserUpdateParam());
-//        log.info("feign updateUser, result: {}", commonResult);
-//
+        log.info("feign getUser, result: {}\n", commonResult);
+
+        /** PathVariable */
+        commonResult = this.userFeign.getPathUser(id);
+        log.info("feign getPathUser, result: {}\n", commonResult);
+
+        /** GET queryString（若使用原SpringMvcContract服务端收到参数为空） */
+        commonResult = this.userFeign.getUserList(this.buildUserSearchParam());
+        log.info("feign getUserList, result: {}\n", commonResult);
+
+        /** POST FORM（若使用原SpringMvcContract服务端收到参数为空） */
+        commonResult = this.userFeign.postUserList(this.buildUserSearchParam());
+        log.info("feign postUserList, result: {}\n", commonResult);
+
+        /** POST RequestBody */
+        commonResult = this.userFeign.addUser(this.buildUserAddParam());
+        log.info("feign addUser, result: {}\n", commonResult);
+        commonResult = this.userFeign.updateUser(this.buildUserUpdateParam());
+        log.info("feign updateUser, result: {}\n", commonResult);
+
         return CommonResult.success();
     }
 
 
     private UserSearchParam buildUserSearchParam() {
         UserSearchParam userSearchParam = new UserSearchParam();
-        userSearchParam.setName("tom");
+        userSearchParam.setName("小明");
         userSearchParam.setSex(1);
         userSearchParam.setBornDateStart(LocalDate.of(1990, 1, 1));
         userSearchParam.setBornDateEnd(LocalDate.of(2021, 1, 1));
@@ -71,7 +72,7 @@ public class HelloController {
     }
     private UserAddParam buildUserAddParam() {
         UserAddParam userAddParam = new UserAddParam();
-        userAddParam.setName("tom");
+        userAddParam.setName("小明");
         userAddParam.setSex(1);
         userAddParam.setBornDate(LocalDate.now());
         userAddParam.setPhone("18888888888");
@@ -82,7 +83,7 @@ public class HelloController {
     private UserUpdateParam buildUserUpdateParam() {
         UserUpdateParam userUpdateParam = new UserUpdateParam();
         userUpdateParam.setId(1L);
-        userUpdateParam.setName("tom");
+        userUpdateParam.setName("小明");
         userUpdateParam.setSex(1);
         userUpdateParam.setBornDate(LocalDate.now());
         userUpdateParam.setPhone("18888888888");

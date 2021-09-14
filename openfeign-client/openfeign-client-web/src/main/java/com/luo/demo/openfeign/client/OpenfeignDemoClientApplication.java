@@ -1,8 +1,8 @@
 package com.luo.demo.openfeign.client;
 
+import com.luo.demo.openfeign.opt.anno.EnableFeignClientsOpt;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.cloud.openfeign.EnableFeignClients;
 
 /**
  * 启动类
@@ -10,7 +10,7 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
  * @author luohq
  * @date 2021-09-11
  */
-@EnableFeignClients
+@EnableFeignClientsOpt
 @SpringBootApplication
 public class OpenfeignDemoClientApplication {
 

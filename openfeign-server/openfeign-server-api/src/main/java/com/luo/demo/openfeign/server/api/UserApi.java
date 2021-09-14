@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/user")
 public interface UserApi {
 
-    @RequestMapping(value = "/detail", method = {RequestMethod.GET})
+    @GetMapping("/detail")
     @ResponseBody
     CommonResult<UserResult> getUser(Long id);
 

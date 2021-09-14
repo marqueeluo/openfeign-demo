@@ -18,21 +18,17 @@
             <artifactId>openfeign-client-api</artifactId>
         </dependency>
 
-        <!-- 依赖openfeign -->
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-openfeign</artifactId>
-        </dependency>
-
         <!-- 依赖openfeign-server-api -->
         <dependency>
             <groupId>com.luo.demo.openfeign</groupId>
             <artifactId>openfeign-server-api</artifactId>
         </dependency>
 
+        <!-- 依赖feign opt -->
         <dependency>
-            <groupId>io.github.openfeign</groupId>
-            <artifactId>feign-okhttp</artifactId>
+            <groupId>com.luo.demo.openfeign</groupId>
+            <artifactId>openfeign-opt</artifactId>
         </dependency>
+
     </dependencies>
 </project>

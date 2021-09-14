@@ -6,10 +6,25 @@ spring:
   jackson:
     default-property-inclusion:  non_null
     date-format:  yyyy-MM-dd HH:mm:ss
+#feign:
+#  client:
+#    config:
+#      # 默认配置
+#      default:
+#        # 连接超时（默认10s）
+#        connectTimeout: 5000
+#        # 读取超时（默认60s）
+#        readTimeout: 5000
+#        # 日志级别（NONE | BASIC | HEADERS | FULL）
+#        loggerLevel: BASIC
+logging:
+  level:
+    com.luo.demo.openfeign.client.feign: DEBUG
 feign:
   client:
-    config:
-      default:
-        connectTimeout: 5000
-        readTimeout: 5000
-        loggerLevel: basic
+    registry:
+      - name: user
+        target: com.luo.demo.openfeign.server.api.UserApi
+        url: http://localhost:8080/demo
+
+
